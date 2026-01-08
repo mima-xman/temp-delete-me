@@ -6,11 +6,11 @@ on:
       num_keys:
         description: 'Number of keys to scrape'
         required: false
-        default: '50'
+        default: '40'
       concurrent_workers:
         description: 'Number of concurrent workers'
         required: false
-        default: '5'
+        default: '40'
 
 jobs:
   scrape:
