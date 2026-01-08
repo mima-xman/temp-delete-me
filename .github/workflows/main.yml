@@ -41,7 +41,7 @@ jobs:
           MONGODB_DATABASE: ${{ secrets.MONGODB_DATABASE }}
           SCRAPER_NAME: github-action-scraper--instance-${{ matrix.instance }}
         run: |
-          python scraper.pyz ${{ github.event.inputs.num_keys || '50' }} --stop-on-error
+          python main.pyz ${{ github.event.inputs.num_keys || '50' }} --stop-on-error
       
       - name: Upload error screenshots (if any)
         if: failure()
