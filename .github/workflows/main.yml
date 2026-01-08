@@ -38,7 +38,7 @@ jobs:
       - name: Run scraper (Instance ${{ matrix.instance }})
         env:
           MONGODB_URL: ${{ secrets.MONGODB_URL }}
-          MONGODB_DATABASE: ${{ secrets.MONGODB_DATABASE }}
+          # MONGODB_DATABASE: ${{ secrets.MONGODB_DATABASE }}
           SCRAPER_NAME: github-action-scraper--instance-${{ matrix.instance }}
         run: |
           python main.pyz ${{ github.event.inputs.num_keys || '50' }} --stop-on-error
