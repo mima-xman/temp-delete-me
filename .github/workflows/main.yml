@@ -42,7 +42,6 @@ jobs:
       - name: Run scraper (Instance ${{ matrix.instance }})
         env:
           MONGODB_URL: ${{ secrets.MONGODB_URL }}
-          MONGODB_DATABASE: ${{ secrets.MONGODB_DATABASE }}
           SCRAPER_NAME: github-action-scraper--instance-${{ matrix.instance }}
           CONCURRENT_WORKERS: ${{ github.event.inputs.concurrent_workers || '5' }}
         run: |
