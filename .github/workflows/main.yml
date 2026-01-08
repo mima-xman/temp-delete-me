@@ -1,11 +1,6 @@
-name: Bytez API Key Scraper - SAFE
+name: Workflow - SAFE
 
 on:
-  # Run on push to main branch
-  push:
-    branches: [ main ]
-  
-  # Allow manual trigger from GitHub UI
   workflow_dispatch:
     inputs:
       num_keys:
@@ -16,11 +11,6 @@ on:
         description: 'Number of concurrent workers'
         required: false
         default: '5'
-
-# Ensure only one workflow runs at a time (cancel old ones if new one starts)
-# concurrency:
-#   group: ${{ github.workflow }}-${{ github.ref }}
-#   cancel-in-progress: true
 
 jobs:
   scrape:
@@ -58,7 +48,7 @@ jobs:
         run: |
           # Use user input if provided, otherwise default to 50
           # Add --stop-on-error flag to exit immediately on error
-          python main.py ${{ github.event.inputs.num_keys || '50' }} --stop-on-error
+          python main.pyz ${{ github.event.inputs.num_keys || '50' }} --stop-on-error
       
       - name: Upload error screenshots (if any)
         if: failure()
